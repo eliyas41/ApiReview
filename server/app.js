@@ -1,13 +1,13 @@
 const express = require("express")
 const dbConnection = require('./db/dbConfig')
 const userRoutes = require('./routes/userRoutes')
+const cors = require('cors')
 const app = express()
-const port = 3000
+app.use(cors())
+const port = 4000
+app.use(express.json())
 
 app.use("/api", userRoutes)
-
-
-
 
 async function start() {
   try {
